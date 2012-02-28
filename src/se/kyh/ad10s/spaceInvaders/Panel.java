@@ -44,6 +44,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 		    alien1Bitmap = Bitmap.createScaledBitmap(alien1Bitmap, 50, 35, false);
 			alien = new Alien((this.screenWidth - 50) + addSpace, this.screenHeight / 6, alien1Bitmap);
 			addSpace = addSpace + alien1Bitmap.getWidth();
+			amountOfAliens--;
 		}
 	}
 	
