@@ -23,4 +23,9 @@ public class SpaceInvadersActivity extends Activity {
          Panel panel = new Panel(this, screenWidth, screenHeight);
          setContentView(panel);
     }
+    
+    public void onStop(){
+    	super.onStop();
+    	EntityManager.INSTANCE.clearEntities();
+    }
 }

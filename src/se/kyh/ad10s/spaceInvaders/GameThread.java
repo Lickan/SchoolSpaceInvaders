@@ -29,6 +29,8 @@ public class GameThread extends Thread{
 				synchronized (surfaceHolder) {
 					canvas.drawColor(Color.BLACK);
 					EntityManager.INSTANCE.drawEntities(canvas);
+					PointManager.INSTANCE.updateScore(canvas);
+					
 					
 				}
 			} finally {

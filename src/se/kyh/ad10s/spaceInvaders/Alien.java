@@ -6,6 +6,7 @@ public class Alien extends PicEntity {
 
 	private int yMov;
 	private int xMov;
+	private int score;
 
 	public Alien(int x, int y, Bitmap bitmap){
 		super(x, y, bitmap);
@@ -16,14 +17,11 @@ public class Alien extends PicEntity {
 	
 	@Override
 	public void updatePosition(){
-//		movement(1, 0);
 		if(getCenterX() > Panel.screenWidth){
 			xMov = -3;
-			
 		} else if(getCenterX() < 0) {
 			xMov = 3;
 		}
-		
 		if(getyPos() <= 0){
 			setyPos(Panel.screenHeight / 2);
 			setxPos(Panel.screenWidth / 2);
@@ -36,5 +34,9 @@ public class Alien extends PicEntity {
 		
 		movement(xMov, yMov);	
 		
+	}
+	
+	public void addScore(int amount){
+		score += amount;
 	}
 }

@@ -24,5 +24,9 @@ public static final EntityManager INSTANCE = new EntityManager();
 			entity.updatePosition();
 		}
 	}
+	
+	public void clearEntities(){
+		entities.clear();
+	}
 
 }
