@@ -4,39 +4,20 @@ import android.graphics.Bitmap;
 
 public class Alien extends PicEntity {
 
-	private int yMov;
-	private int xMov;
+//	private int yMov;
+//	private int xMov;
 	private int score;
 
 	public Alien(int x, int y, Bitmap bitmap){
 		super(x, y, bitmap);
 		
-		xMov = 3;
-		yMov = 0;
+//		xMov = 3;
+//		yMov = 0;
 	}
-	
-	@Override
-	public void updatePosition(){
-		if(getCenterX() > Panel.screenWidth){
-			xMov = -3;
-		} else if(getCenterX() < 0) {
-			xMov = 3;
-		}
-		if(getyPos() <= 0){
-			setyPos(Panel.screenHeight / 2);
-			setxPos(Panel.screenWidth / 2);
-			yMov = yMov * -1;
-		} else if(getyPos() >= Panel.screenHeight){
-			setyPos(Panel.screenHeight / 2);
-			setxPos(Panel.screenWidth / 2);
-			yMov = yMov * -1;
-		}
-		
-		movement(xMov, yMov);	
-		
-	}
-	
+
 	public void addScore(int amount){
 		score += amount;
 	}
+	
+
 }

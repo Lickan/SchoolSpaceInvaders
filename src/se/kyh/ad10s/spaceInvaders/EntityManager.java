@@ -1,6 +1,6 @@
 package se.kyh.ad10s.spaceInvaders;
 
-import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import android.graphics.Canvas;
 
@@ -8,10 +8,10 @@ public class EntityManager {
 	
 public static final EntityManager INSTANCE = new EntityManager();
 	
-	private ArrayList<Entity> entities; 
+	private  CopyOnWriteArrayList<Entity> entities; 
 	
 	public EntityManager(){
-		this.entities = new ArrayList<Entity>();
+		this.entities = new  CopyOnWriteArrayList<Entity>();
 	}
 	
 	public void addEntity(Entity entity){

@@ -13,7 +13,6 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 	public static int screenHeight;
 	private GameThread thread;
 	private Ship ship;
-	private Alien alien;
 
 	public Panel(Context context, int screenWidth, int screenHeight){
 		super(context);
@@ -27,25 +26,10 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 	    Bitmap alien1Bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.drawing13, options);
 	    shipBitmap = Bitmap.createScaledBitmap(shipBitmap, 50, 46, false);
 	    alien1Bitmap = Bitmap.createScaledBitmap(alien1Bitmap, 50, 35, false);
-//		Bitmap shipBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.drawing12);
 		
 		ship = new Ship(this.screenWidth/2, this.screenHeight - 90, shipBitmap);
-		drawAliens();
-	}
-	
-	public void drawAliens(){
-		int amountOfAliens = this.screenWidth / 50;
-		int addSpace = 0;
-		while(amountOfAliens >= 1){
-			
-			BitmapFactory.Options options = new BitmapFactory.Options();
-			options.inSampleSize = 1/2;
-			Bitmap alien1Bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.drawing13, options);
-		    alien1Bitmap = Bitmap.createScaledBitmap(alien1Bitmap, 50, 35, false);
-			alien = new Alien((this.screenWidth - 50) + addSpace, this.screenHeight / 6, alien1Bitmap);
-			addSpace = addSpace + alien1Bitmap.getWidth();
-			amountOfAliens--;
-		}
+		AlienGroup alienGroup = new AlienGroup(getResources());
+		alienGroup.createAlienGroup(3, 4, this.screenWidth, this.screenHeight);
 	}
 	
 	@Override
