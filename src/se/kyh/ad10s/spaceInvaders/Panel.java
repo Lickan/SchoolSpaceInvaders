@@ -1,6 +1,9 @@
 package se.kyh.ad10s.spaceInvaders;
 
+import java.util.Map;
+
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.MotionEvent;
@@ -13,6 +16,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 	public static int screenHeight;
 	private GameThread thread;
 	private Ship ship;
+	public static Resources resources;
 
 	public Panel(Context context, int screenWidth, int screenHeight){
 		super(context);

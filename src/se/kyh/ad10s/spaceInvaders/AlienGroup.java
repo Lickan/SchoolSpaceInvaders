@@ -5,6 +5,7 @@ import java.util.Map;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Rect;
 
 public class AlienGroup{
 	private Resources resources;
@@ -32,8 +33,10 @@ public class AlienGroup{
 	
 	public void updatePosition(){
 		AlienRow alienRow = new AlienRow(resources);
-		Bitmap bitmap = alienRow.alienBitmaps.get("alien1");
-		int bitmapWidth =	bitmap.getWidth();
+		int bitmapWidth =	alienRow.alienBitmaps.get("alien1").getWidth();;
 		int rowWidth = bitmapWidth * alienRow.alienBitmaps.size();
+		
+		
+		
 	}
 }
