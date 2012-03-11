@@ -30,6 +30,7 @@ public class GameThread extends Thread{
 					canvas.drawColor(Color.BLACK);
 					EntityManager.INSTANCE.drawEntities(canvas);
 					PointManager.INSTANCE.updateScore(canvas);
+					CollisionManager.INSTANCE.collision();
 					
 					
 				}

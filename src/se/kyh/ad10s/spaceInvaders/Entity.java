@@ -43,5 +43,9 @@ public abstract class Entity {
 		setxPos(getxPos() + deltaX);
 		setyPos(getyPos() + deltaY);
 	}
+	
+	public void collision(){
+		
+	}
 
 }
