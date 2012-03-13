@@ -1,6 +1,7 @@
 package se.kyh.ad10s.spaceInvaders;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 public class Alien extends PicEntity {
 
@@ -13,6 +14,7 @@ public class Alien extends PicEntity {
 		xMov = 3;
 		yMov = 0;
 		
+		EntityManager.INSTANCE.addEntity(this);	
 	}
 	
 	@Override
@@ -115,6 +117,7 @@ public class Alien extends PicEntity {
 				if(getxPos() + getBitmapWidth() >= Panel.screenWidth - (getBitmapWidth() - 2)){
 					if(getyPos() <= 600){
 						yMov = getBitmapHeight()/2;
+						Log.v("AlienWoking", yMov + " ");
 					}
 				}
 			} else if(Panel.map.get("alien31") == this){
@@ -123,7 +126,7 @@ public class Alien extends PicEntity {
 				} else if (getxPos() <= 0 + getBitmapWidth()*3){
 					xMov = xMov * -1;
 				}
-				if(getxPos() + getBitmapWidth() >= Panel.screenWidth  - 1){
+				if(getxPos() + getBitmapWidth() >= Panel.screenWidth  + 1){
 					if(getyPos() <= 600 - getBitmapHeight()*3){
 						yMov = getBitmapHeight()/2;
 					}
@@ -134,7 +137,7 @@ public class Alien extends PicEntity {
 				} else if (getxPos() <= 0 + getBitmapWidth()*3){
 					xMov = xMov * -1;
 				}
-				if(getxPos() + getBitmapWidth() >= Panel.screenWidth - 1){
+				if(getxPos() + getBitmapWidth() >= Panel.screenWidth + 1){
 					if(getyPos() <= 600 - getBitmapHeight()){
 						yMov = getBitmapHeight()/2;
 					}
@@ -145,9 +148,10 @@ public class Alien extends PicEntity {
 				} else if (getxPos() <= 0 + getBitmapWidth()*3){
 					xMov = xMov * -1;
 				}
-				if(getxPos() + getBitmapWidth() >= Panel.screenWidth - 1){
+				if(getxPos() + getBitmapWidth() >= Panel.screenWidth + 1){
 					if(getyPos() <= 600){
 						yMov = getBitmapHeight()/2;
+						Log.v("Alien", yMov +" ");
 					}
 				}
 			}

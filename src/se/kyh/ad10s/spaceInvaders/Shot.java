@@ -1,8 +1,5 @@
 package se.kyh.ad10s.spaceInvaders;
 
-import java.util.ArrayList;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import android.graphics.Bitmap;
 
 public class Shot extends PicEntity{
@@ -16,6 +13,8 @@ public class Shot extends PicEntity{
 		
 		xMov = 0;
 		yMov = -3;
+		
+		EntityManager.INSTANCE.addShot(this);
 	}
 	
 	@Override
@@ -23,9 +22,9 @@ public class Shot extends PicEntity{
 		movement(xMov, yMov);	
 	}
 	
-//	@Override 
-//	public void collision(){
-//		EntityManager.INSTANCE.removeEntity(this);
-//	}
+	@Override 
+	public void collision(){
+		EntityManager.INSTANCE.removeShot(this);
+	}
 
 }

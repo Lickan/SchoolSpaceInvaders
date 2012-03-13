@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -88,6 +89,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 			case MotionEvent.ACTION_DOWN:
 				Bitmap shotBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.shot);
 				shot = new Shot(ship.getxPos() + (map.get("alien01").getBitmapWidth()/2), ship.getyPos(), shotBitmap);
+				Log.v("Panel", "Clicked");
 				break;
 		}
 		return true;

@@ -12,7 +12,7 @@ public abstract class Entity {
 		this.setxPos(x);
 		this.setyPos(y);
 		
-		EntityManager.INSTANCE.addEntity(this);
+//		EntityManager.INSTANCE.addEntity(this);
 		
 	}
 

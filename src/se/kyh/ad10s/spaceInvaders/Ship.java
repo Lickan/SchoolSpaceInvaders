@@ -12,5 +12,7 @@ public class Ship extends PicEntity{
 		
 		xMov = 3;
 		yMov = 0;
+		
+		EntityManager.INSTANCE.addEntity(this);
 	}
 }

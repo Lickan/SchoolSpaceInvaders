@@ -8,6 +8,7 @@ public class EntityManager {
 public static final EntityManager INSTANCE = new EntityManager();
 	
 	private CopyOnWriteArrayList<Entity> entities;
+	private CopyOnWriteArrayList<Entity> shots;
 
 	private int yMov;
 
@@ -17,10 +18,19 @@ public static final EntityManager INSTANCE = new EntityManager();
 	
 	public EntityManager(){
 		this.entities = new  CopyOnWriteArrayList<Entity>();
+		this.shots = new CopyOnWriteArrayList<Entity>();
 	}
 	
 	public CopyOnWriteArrayList<Entity> getCopyOnWriteArrayListEntity(){
 		return entities;
+	}
+	
+	public CopyOnWriteArrayList<Entity> getShotsList(){
+		return shots;
+	}
+	
+	public void addShot(Entity entity){
+		this.shots.add(entity);
 	}
 	
 	public void addEntity(Entity entity){
@@ -32,6 +42,10 @@ public static final EntityManager INSTANCE = new EntityManager();
 			entity.onDraw(canvas);
 			entity.updatePosition();
 		}
+		for(Entity shot : this.shots){
+			shot.onDraw(canvas);
+			shot.updatePosition();
+		}
 	}
 	
 	public void clearEntities(){
@@ -40,5 +54,9 @@ public static final EntityManager INSTANCE = new EntityManager();
 	
 	public void removeEntity(Entity entity){
 		entities.remove(entity);
+	}
+	
+	public void removeShot(Entity entity){
+		shots.remove(entity);
 	}
 }

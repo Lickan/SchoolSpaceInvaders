@@ -16,6 +16,7 @@ public class PicEntity extends Entity{
 		this.bitmap = bitmap;
 		
 		sourceRect = new Rect(0, 0, getBitmapWidth(), getBitmapHeight());
+		destinationRect = new Rect(getxPos(), getyPos(), getxPos() + getBitmapWidth(), getyPos() + getBitmapHeight());
 		
 	}
 	

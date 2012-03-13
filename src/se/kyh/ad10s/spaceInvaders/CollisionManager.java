@@ -14,16 +14,17 @@ public class CollisionManager {
 	public boolean collision(){
 		
 		CopyOnWriteArrayList<Entity> entityArray = EntityManager.INSTANCE.getCopyOnWriteArrayListEntity();
-		for(Entity entity1 : entityArray){
-			for(Entity entity2 : entityArray){
-				if(!entity1.equals(entity2)){	
-					if(Rect.intersects(entity1.getDestRect(), entity2.getDestRect())){
-						entity1.collision();
-						entity2.collision();
+		CopyOnWriteArrayList<Entity> shotsArray = EntityManager.INSTANCE.getShotsList();
+		
+		for(Entity entity : entityArray){
+			if(entity instanceof Alien){
+				for(Entity shot : shotsArray){	
+					if(Rect.intersects(entity.getDestRect(), shot.getDestRect())){
+						entity.collision();
+						shot.collision();
 						return true;
 					}
 				}
-				
 			}
 		}
 		return false;
