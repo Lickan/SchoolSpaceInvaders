@@ -26,11 +26,12 @@ public class Shot extends PicEntity{
 //			} else if (getxPos() <= 0 + getBitmapWidth()*3){
 //				xMov = xMov * -1;
 //			}
-		if(getyPos() < Panel.screenHeight - 50){
-			ArrayList<Entity> entities = new ArrayList<Entity>();
-			entities.add(this);
-			entities.clear();	
-		}
+//		Not working
+//		if(getyPos() < Panel.screenHeight - 50){
+//			ArrayList<Entity> entities = new ArrayList<Entity>();
+//			entities.add(this);
+//			entities.clear();	
+//		}
 		
 		movement(xMov, yMov);	
 	}
