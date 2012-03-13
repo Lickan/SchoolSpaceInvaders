@@ -1,6 +1,7 @@
 package se.kyh.ad10s.spaceInvaders;
 
 import android.graphics.Canvas;
+import android.graphics.Rect;
 
 public abstract class Entity {
 	
@@ -46,6 +47,11 @@ public abstract class Entity {
 	
 	public void collision(){
 		
+	}
+
+	public Rect getDestRect() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

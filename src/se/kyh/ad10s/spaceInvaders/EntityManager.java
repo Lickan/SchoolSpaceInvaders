@@ -37,4 +37,8 @@ public static final EntityManager INSTANCE = new EntityManager();
 	public void clearEntities(){
 		entities.clear();
 	}
+	
+	public void removeEntity(Entity entity){
+		entities.remove(entity);
+	}
 }

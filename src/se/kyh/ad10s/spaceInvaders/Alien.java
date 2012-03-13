@@ -160,51 +160,51 @@ public class Alien extends PicEntity {
 	public void collision(){
 		if(Panel.map.get("alien01") == this){
 			PointManager.INSTANCE.addScore(30);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien02") == this){
 			PointManager.INSTANCE.addScore(20);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien03") == this){
 			PointManager.INSTANCE.addScore(10);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien11") == this){
 			PointManager.INSTANCE.addScore(30);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien12") == this){
 			PointManager.INSTANCE.addScore(20);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien13") == this){
 			PointManager.INSTANCE.addScore(10);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien21") == this){
 			PointManager.INSTANCE.addScore(30);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien22") == this){
 			PointManager.INSTANCE.addScore(20);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien23") == this){
 			PointManager.INSTANCE.addScore(10);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien31") == this){
 			PointManager.INSTANCE.addScore(30);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien32") == this){
 			PointManager.INSTANCE.addScore(20);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		if(Panel.map.get("alien33") == this){
 			PointManager.INSTANCE.addScore(10);
-			Panel.map.remove(this);
+			EntityManager.INSTANCE.removeEntity(this);
 		}
 		
 	}

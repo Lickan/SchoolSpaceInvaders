@@ -9,6 +9,7 @@ public class PicEntity extends Entity{
 	Bitmap bitmap;
 	
 	Rect sourceRect;
+	Rect destinationRect;
 
 	public PicEntity(int x, int y, Bitmap bitmap){
 		super(x, y);
@@ -35,8 +36,13 @@ public class PicEntity extends Entity{
 	}
 	
 	@Override
+	public Rect getDestRect(){
+		return destinationRect;
+	}
+	
+	@Override
 	public void onDraw(Canvas canvas){
-		Rect destinationRect = new Rect(getxPos(), getyPos(), getxPos() + getBitmapWidth(), getyPos() + getBitmapHeight());
+		destinationRect = new Rect(getxPos(), getyPos(), getxPos() + getBitmapWidth(), getyPos() + getBitmapHeight());
 		canvas.drawBitmap(bitmap, sourceRect, destinationRect, null);
 	}
 

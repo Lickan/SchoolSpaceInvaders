@@ -1,6 +1,5 @@
 package se.kyh.ad10s.spaceInvaders;
 
-import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 import android.graphics.Rect;
 
@@ -12,22 +11,21 @@ public class CollisionManager {
 		
 	}
 	
-	public void collision(){
-//		CopyOnWriteArrayList<Entity> entityArray = EntityManager.INSTANCE.getCopyOnWriteArrayListEntity();
-//		Rect shot = null, alien = null;
-//		for(Entity entity : entityArray){
-////			if(entity instanceof Shot){
-////				shot = entity.getDestRect();
-////			} else if (entity instanceof Alien){
-////				alien = entity.getDestRect();
-////			} 
-//			if(Rect.intersects(shot, alien)){
-//				entity.collision();
-//			} 
-////			Rect e1 = entity.getDestRect();
-////			Rect e2 = entity.getDestRect();	
-//		}
+	public boolean collision(){
 		
+		CopyOnWriteArrayList<Entity> entityArray = EntityManager.INSTANCE.getCopyOnWriteArrayListEntity();
+		for(Entity entity1 : entityArray){
+			for(Entity entity2 : entityArray){
+				if(!entity1.equals(entity2)){	
+					if(Rect.intersects(entity1.getDestRect(), entity2.getDestRect())){
+						entity1.collision();
+						entity2.collision();
+						return true;
+					}
+				}
+				
+			}
+		}
+		return false;
 	}
-
 }
