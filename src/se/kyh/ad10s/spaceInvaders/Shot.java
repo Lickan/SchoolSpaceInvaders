@@ -19,6 +19,9 @@ public class Shot extends PicEntity{
 	
 	@Override
 	public void updatePosition(){
+		if(getyPos() <= 0){
+			EntityManager.INSTANCE.removeShot(this);
+		}
 		movement(xMov, yMov);	
 	}
 	

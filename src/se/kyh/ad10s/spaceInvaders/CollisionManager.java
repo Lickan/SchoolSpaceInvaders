@@ -15,6 +15,7 @@ public class CollisionManager {
 		
 		CopyOnWriteArrayList<Entity> entityArray = EntityManager.INSTANCE.getCopyOnWriteArrayListEntity();
 		CopyOnWriteArrayList<Entity> shotsArray = EntityManager.INSTANCE.getShotsList();
+		CopyOnWriteArrayList<Entity> alienShotsArray = EntityManager.INSTANCE.getAlienShotsList();
 		
 		for(Entity entity : entityArray){
 			if(entity instanceof Alien){
@@ -22,6 +23,15 @@ public class CollisionManager {
 					if(Rect.intersects(entity.getDestRect(), shot.getDestRect())){
 						entity.collision();
 						shot.collision();
+						return true;
+					}
+				}
+			}
+			if(entity instanceof Ship){
+				for(Entity alienShot : alienShotsArray){	
+					if(Rect.intersects(entity.getDestRect(), alienShot.getDestRect())){
+						entity.collision();
+						alienShot.collision();
 						return true;
 					}
 				}

@@ -2,11 +2,15 @@ package se.kyh.ad10s.spaceInvaders;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -20,8 +24,11 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 	private Ship ship;
 	private Alien alien;
 	private Shot shot;
+	private static AlienShot alienshot;
 	public static Resources resources;
 	public static Map<String, Alien> map = new HashMap<String, Alien>();
+	public static Bitmap alienShotBitmap;
+	private static SurfaceHolder surfaceHolder;
 
 	public Panel(Context context, int screenWidth, int screenHeight){
 		super(context);
@@ -38,7 +45,8 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 		
 		ship = new Ship(this.screenWidth/2, this.screenHeight - 90, shipBitmap);
 		drawAliens();
-		
+		alienShotBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.shot);
+
 	}
 	
 	 public Map<String, Alien> drawAliens(){	
@@ -89,11 +97,11 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 			case MotionEvent.ACTION_DOWN:
 				Bitmap shotBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.shot);
 				shot = new Shot(ship.getxPos() + (map.get("alien01").getBitmapWidth()/2), ship.getyPos(), shotBitmap);
-				Log.v("Panel", "Clicked");
 				break;
 		}
 		return true;
 	}
+	
 
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
 			int height) {
@@ -120,6 +128,22 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 			}
 		}
 		
+	}
+	
+	public static void gameFinish(boolean bool, Canvas canvas){
+		if(bool == true){
+			EntityManager.INSTANCE.clearEntities();
+			Paint paint = new Paint();
+			paint.setColor(Color.WHITE);
+			paint.setTextSize(40);
+			canvas.drawText("You won", screenWidth / 2, screenWidth / 2, paint);
+		} else if(bool == false){
+			EntityManager.INSTANCE.clearEntities();
+			Paint paint = new Paint();
+			paint.setColor(Color.WHITE);
+			paint.setTextSize(40);
+			canvas.drawText("You lose", screenWidth / 2, screenWidth / 2, paint);
+		}
 	}
 
 }

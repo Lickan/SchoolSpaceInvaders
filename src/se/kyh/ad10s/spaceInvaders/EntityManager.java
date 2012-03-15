@@ -9,16 +9,20 @@ public static final EntityManager INSTANCE = new EntityManager();
 	
 	private CopyOnWriteArrayList<Entity> entities;
 	private CopyOnWriteArrayList<Entity> shots;
+	private CopyOnWriteArrayList<Entity> alienShots;
 
 	private int yMov;
 
 	private int xMov;
 	
 	public Entity entity;
+
+	private Ship ship;
 	
 	public EntityManager(){
 		this.entities = new  CopyOnWriteArrayList<Entity>();
 		this.shots = new CopyOnWriteArrayList<Entity>();
+		this.alienShots = new CopyOnWriteArrayList<Entity>();
 	}
 	
 	public CopyOnWriteArrayList<Entity> getCopyOnWriteArrayListEntity(){
@@ -28,9 +32,16 @@ public static final EntityManager INSTANCE = new EntityManager();
 	public CopyOnWriteArrayList<Entity> getShotsList(){
 		return shots;
 	}
+	public CopyOnWriteArrayList<Entity> getAlienShotsList(){
+		return alienShots;
+	}
 	
 	public void addShot(Entity entity){
 		this.shots.add(entity);
+	}
+	
+	public void addAlienShot(Entity entity){
+		this.alienShots.add(entity);
 	}
 	
 	public void addEntity(Entity entity){
@@ -46,10 +57,16 @@ public static final EntityManager INSTANCE = new EntityManager();
 			shot.onDraw(canvas);
 			shot.updatePosition();
 		}
+		for(Entity alienShot : this.alienShots){
+			alienShot.onDraw(canvas);
+			alienShot.updatePosition();
+		}
 	}
 	
 	public void clearEntities(){
 		entities.clear();
+		shots.clear();
+		alienShots.clear();
 	}
 	
 	public void removeEntity(Entity entity){
@@ -58,5 +75,18 @@ public static final EntityManager INSTANCE = new EntityManager();
 	
 	public void removeShot(Entity entity){
 		shots.remove(entity);
+	}
+	
+	public void removeAlienShot(Entity entity){
+		alienShots.remove(entity);
+	}
+	
+	public void checkGame(Canvas canvas){
+		if(Alien.alienWin()){
+			Panel.gameFinish(true, canvas);
+		}
+		if(Ship.shipLose()){
+			Panel.gameFinish(false, canvas);
+		}
 	}
 }

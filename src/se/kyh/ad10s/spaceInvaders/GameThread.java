@@ -31,6 +31,7 @@ public class GameThread extends Thread{
 					EntityManager.INSTANCE.drawEntities(canvas);
 					PointManager.INSTANCE.updateScore(canvas);
 					CollisionManager.INSTANCE.collision();
+					EntityManager.INSTANCE.checkGame(canvas);
 					
 					
 				}
